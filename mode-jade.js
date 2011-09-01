@@ -40,6 +40,16 @@ var JadeHighlightRules = function() {
         {
           token : "comment",
           regex : "\\/\\/.*$"
+        }, 
+        // Jade's iteration: 'each foo in foos'
+        {
+          token : ["keyword", "text", "variable", "text", "keyword", "text", "variable"],
+          regex : "(each)(\\s+)([\\w-]+)(\\s+)(in)(\\s+)([\\w-]+)"
+        }, 
+        // Jade's iteration: 'each foo, bar in foos'
+        {
+          token : ["keyword", "text", "variable", "text", "variable", "text", "keyword", "text", "variable"],
+          regex : "(each)(\\s+)([\\w-]+)(\\s*,\\s*)([\\w-]+)(\\s+)(in)(\\s+)([\\w-]+)"
         }, {
           token : "text",
           regex : "\\|.*$"
@@ -48,7 +58,7 @@ var JadeHighlightRules = function() {
           regex : "(?:\\.|#)?([\\w-]+)(.*)$"
         }, {
           token : "comment",
-          regex : "(?:!!!|doctype)\\s+\\w*$"
+          regex : "(?:!!!|doctype)\\s+\\w*\\s*$"
         }
       ]     
     }
