@@ -4,11 +4,15 @@
   <script type="text/javascript" src="mode-javascript.js"></script>
   <script type="text/javascript" src="mode-css.js"></script>
   <script type="text/javascript" src="mode-jade.js"></script>
+  <script type="text/javascript" src="theme-vibrant_ink.js" charset="utf-8"></script>
   <script type="text/javascript">
     window.onload = function() {
       var editor = ace.edit("editor");
       var JadeMode = require("ace/mode/jade").Mode;
+
       editor.getSession().setMode(new JadeMode());
+      editor.setTheme("ace/theme/vibrant_ink");
+      editor.getSession().setTabSize(2);
     };
   </script>
 </head>
@@ -34,7 +38,8 @@
             | rawr rawr
             | super cool
             | go jade go
-          each foo in
+          each boy, girl in bar
+            
           </div>
 </body>
 </html>

@@ -35,6 +35,10 @@ var TextHighlightRules = require("ace/mode/text_highlight_rules").TextHighlightR
 
 var JadeHighlightRules = function() {
 
+    // TODO: 
+    // - String interpolation (ie. #{})
+    // - Indentation in the Mode
+    // - Javascript and CSS delegates (after script and style tags). -= also for JS.
     this.$rules = {
       start: [
         {
@@ -57,7 +61,7 @@ var JadeHighlightRules = function() {
           token : ["keyword", "text"],
           regex : "(?:\\.|#)?([\\w-]+)(.*)$"
         }, {
-          token : "comment",
+          token : "keyword",
           regex : "(?:!!!|doctype)\\s+\\w*\\s*$"
         }
       ]     
