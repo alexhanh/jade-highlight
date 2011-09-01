@@ -40,6 +40,15 @@ var JadeHighlightRules = function() {
         {
           token : "comment",
           regex : "\\/\\/.*$"
+        }, {
+          token : "text",
+          regex : "\\|.*$"
+        }, {
+          token : ["keyword", "text"],
+          regex : "(?:\\.|#)?([\\w-]+)(.*)$"
+        }, {
+          token : "comment",
+          regex : "(?:!!!|doctype)\\s+\\w*$"
         }
       ]     
     }
