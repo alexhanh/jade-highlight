@@ -59,12 +59,18 @@ var JadeHighlightRules = function() {
           regex : "\\|.*$"
         }, {
           token : ["keyword", "text"],
-          regex : "(?:\\.|#)?([\\w-]+)(.*)$"
+          regex : "((?:\\.|#)?[\\w-]+)(.*)$"
         }, {
           token : "keyword",
           regex : "(?:!!!|doctype)\\s+\\w*\\s*$"
+        }, {
+          token : "string", // single line
+          regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
+        }, {
+          token : "string", // single line
+          regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
         }
-      ]     
+      ]      
     }
 
     // this.embedRules(JavaScriptHighlightRules, "js-", {
