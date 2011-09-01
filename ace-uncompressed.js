@@ -10951,7 +10951,7 @@ var Tokenizer = function(rules) {
         if (token.type)
             tokens.push(token);
 
-        debugger
+        // debugger
 
         return {
             tokens : tokens,
