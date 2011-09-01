@@ -1,0 +1,39 @@
+<html>
+<head>
+  <script type="text/javascript" src="ace-uncompressed.js"></script>
+  <script type="text/javascript" src="mode-javascript.js"></script>
+  <script type="text/javascript" src="mode-css.js"></script>
+  <script type="text/javascript" src="mode-jade.js"></script>
+  <script type="text/javascript">
+    window.onload = function() {
+      var editor = ace.edit("editor");
+      var JadeMode = require("ace/mode/jade").Mode;
+      editor.getSession().setMode(new JadeMode());
+    };
+  </script>
+</head>
+<body>
+<!--   <div id="editor" style="width: 600px; height: 400px;">!!! 5
+  html(lang="en")
+    head
+      title= pageTitle
+      script(type='text/javascript')
+        if (foo) {
+           bar()
+        }
+    body
+      h1 Jade - node template engine
+      #container
+        - if (youAreUsingJade)
+          p You are amazing
+        - else
+          p Get on it!
+          p
+            | foo bar baz
+            | rawr rawr
+            | super cool
+            | go jade go</div> -->
+
+<div id="editor" style="width: 600px; height: 400px;">"Comment #{line}"</div>
+</body>
+</html>
