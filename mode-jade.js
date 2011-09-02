@@ -44,7 +44,12 @@ var JadeHighlightRules = function() {
         {
           token : "comment",
           regex : "\\/\\/.*$"
-        }, 
+        },
+        // {
+        //   // todo:
+        //   token : "text",
+        //   regex : "-.*$"
+        // },
         // Jade's iteration: 'each foo in foos'
         {
           token : ["keyword", "text", "variable", "text", "keyword", "text", "variable"],
@@ -58,19 +63,51 @@ var JadeHighlightRules = function() {
           token : "text",
           regex : "\\|.*$"
         }, {
-          token : ["keyword", "text"],
-          regex : "((?:\\.|#)?[\\w-]+)(.*)$"
+          token : "keyword",
+          regex : "(?:\\.|#)?[\\w-]+\\s*$"
+          // regex : "((?:\\.|#)?[\\w-]+)(.*)$"
+        }, {
+          token : "keyword",
+          regex : "(?:\\.|#)?[\\w-]+",
+          next  : "parentheses"
+          // regex : "((?:\\.|#)?[\\w-]+)(.*)$"
         }, {
           token : "keyword",
           regex : "(?:!!!|doctype)\\s+\\w*\\s*$"
-        }, {
+        }
+      ],
+      parentheses: [
+        {
+          token : "lparent",
+          regex : "[(]"
+        },
+        {
+          token : "rparent",
+          regex : "[)]",
+          next: "start"
+        },
+        {
+          token : "text",
+          regex : "\\s*,\\s*"
+        },
+        {
+          token : ["variable", "keyword.operator"],
+          regex : "([\\w-]+)(\\s*=)"
+        },
+        {
           token : "string", // single line
           regex : '["](?:(?:\\\\.)|(?:[^"\\\\]))*?["]'
-        }, {
+        }, 
+        {
           token : "string", // single line
           regex : "['](?:(?:\\\\.)|(?:[^'\\\\]))*?[']"
+        }, 
+        {
+          token : "text",
+          regex : "\\s*$",
+          next : "start"
         }
-      ]      
+      ]
     }
 
     // this.embedRules(JavaScriptHighlightRules, "js-", {
